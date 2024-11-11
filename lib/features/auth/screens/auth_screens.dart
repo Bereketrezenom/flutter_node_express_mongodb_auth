@@ -99,6 +99,11 @@ return Scaffold(
         ),
 
          ListTile(
+          
+            tileColor: _auth == Auth.signin ? const Color.fromARGB(255, 228, 221, 221) : Color.fromARGB(213, 240, 230, 230),
+          shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+          ),
           title: const Text(' Signin',style: TextStyle(
             fontSize: 20,
             color: Colors.black,
@@ -114,22 +119,29 @@ return Scaffold(
           });}
         ),
         ),
-          if(_auth == Auth.signin)
-        Form(
-          key: _signinFormKey,
-          child: Column(
-              children: [
-                CustomTextField(controller: _emailController, hintText: 'Enter Your Email',),
-                SizedBox(
-                  height: 10,
-                ),
-                CustomTextField(controller: _passwordController, hintText: 'Enter Your Password',),
-                SizedBox(
-                  height: 10,
-                ),
-      ],
-    ),
-  ),
+
+            if(_auth == Auth.signin)
+
+        Container(
+           margin: const EdgeInsets.all(10),
+          padding: EdgeInsets.all(8.0),
+          color: GlobalVariables.backgroundColor,
+          child: Form(
+            key: _signinFormKey,
+            child: Column(
+                children: [
+                  CustomTextField(controller: _emailController, hintText: 'Enter Your Email',),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  CustomTextField(controller: _passwordController, hintText: 'Enter Your Password',),
+                  SizedBox(
+                    height: 10,
+                  ),
+                ],
+              ),
+            ),
+        ),
   ]),
 
 )));
